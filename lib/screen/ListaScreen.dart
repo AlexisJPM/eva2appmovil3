@@ -77,12 +77,6 @@ Widget listaExterna(BuildContext context) {
                           ],
                         ),
                       ),
-                      actions: [
-                        TextButton(
-                          onPressed: () => Navigator.pop(context),
-                          child: const Text("Cerrar"),
-                        )
-                      ],
                     );
                   },
                 );

@@ -24,7 +24,7 @@ class AppEva extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
 
-      initialRoute: "/comentarios",
+      initialRoute: "/",
 
       routes: {
         "/": (context) => const MainHomeScreen(),

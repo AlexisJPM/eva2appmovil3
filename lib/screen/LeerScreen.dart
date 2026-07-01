@@ -2,20 +2,8 @@ import 'package:evaluacion2/main.dart';
 import 'package:evaluacion2/navigations/NavigatorDrawer.dart';
 import 'package:flutter/material.dart';
 
-class LeerScreen extends StatefulWidget {
+class LeerScreen extends StatelessWidget {
   const LeerScreen({super.key});
-
-  @override
-  State<LeerScreen> createState() => _LeerScreenState();
-}
-
-class _LeerScreenState extends State<LeerScreen> {
-  Future<List<dynamic>> leerSupa() async {
-    final data = await supabase
-        .from('comentarios')
-        .select();
-    return data;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,13 +13,17 @@ class _LeerScreenState extends State<LeerScreen> {
       body: lista(),
     );
   }
+}
 
+Future<List<dynamic>> leerSupa() async {
+  final data = await supabase
+      .from('comentarios')
+      .select();
+  return data;
+}
   Widget lista() {
-    return FutureBuilder(
-      future: leerSupa(),
-      builder: (context, snapshot) {
+    return FutureBuilder(future: leerSupa(), builder: (context, snapshot) {
         
-
         if (snapshot.hasData && snapshot.data!.isNotEmpty) {
           final data = snapshot.data!;
           
@@ -56,4 +48,4 @@ class _LeerScreenState extends State<LeerScreen> {
       },
     );
   }
-  }
+  
